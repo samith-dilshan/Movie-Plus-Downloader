@@ -27,13 +27,7 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
-let pp = await fetchJson(`https://fetchfox.ai/api/v2/fetch?url=http://server.moviepluslk.xyz/api.php?slug=${q}`)
-let html = await fetchJson(pp.html)
-
-const $ = cheerio.load(html);
-const jsonText = $('pre').text();
-const data = JSON.parse(jsonText);      
-
+let data = await fetchJson(http://server.moviepluslk.xyz/api.php?slug=${q})
 if (!size) return reply("*ඔබ ලබාදුන් ටොකන් එක වැරදි, නැතිනම් එය කල් ඉකුත් වී ඇත*")
  
 let size = data.file_size;
