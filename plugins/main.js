@@ -34,7 +34,7 @@ const $ = cheerio.load(html);
 const jsonText = $('pre').text();
 const data = JSON.parse(jsonText);      
 
-if (!jsonText) return reply("*ඔබ ලබාදුන් ටොකන් එක වැරදි, නැතිනම් එය කල් ඉකුත් වී ඇත*")
+if (!size) return reply("*ඔබ ලබාදුන් ටොකන් එක වැරදි, නැතිනම් එය කල් ඉකුත් වී ඇත*")
  
 let size = data.file_size;
 let downloadlink = data.google_drive_link;
