@@ -27,7 +27,7 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
-let data = await fetchJson(http://server.moviepluslk.xyz/api.php?slug=${q})
+let data = await fetchJson(`http://server.moviepluslk.xyz/api.php?slug=${q}`)
 if (!size) return reply("*ඔබ ලබාදුන් ටොකන් එක වැරදි, නැතිනම් එය කල් ඉකුත් වී ඇත*")
  
 let size = data.file_size;
