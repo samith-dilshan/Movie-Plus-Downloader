@@ -88,20 +88,26 @@ cmd(
         await conn.sendMessage(from, { text: message2 }, { quoted: mek });
         await conn.sendMessage(from, { react: { text: "❌", key: mek.key } });
       } else {
-        await conn.sendMessage(from, { text: message }, { quoted: mek });
-        await conn.sendMessage(from, { react: { text: "⬇️", key: mek.key } });
-        await conn.sendMessage(from, { react: { text: "⬆️", key: mek.key } });
-        let links = await convertDownloadToViewLink(downloadlink);
-        await conn.sendMessage(
-          from,
-          {
+    await conn.sendMessage(from, { text: message }, { quoted: mek });
+    await conn.sendMessage(from, { react: { text: "⬇️", key: mek.key } });
+    await conn.sendMessage(from, { react: { text: "⬆️", key: mek.key } });
+
+    let links = await convertDownloadToViewLink(downloadlink);
+
+    // Send Movie File with Thumbnail
+    await conn.sendMessage(
+        from,
+        {
             document: { url: links },
             caption: `*${title}*\n\n> *❯⏤͟͟͞͞★𝗠𝗢𝗩𝗜𝗘🇵 🇱 🇺 🇸 ☆❯⏤͟͟͞͞*`,
             mimetype: "video/mp4",
             fileName: `🎬MOVIEPLUS🎬 ${title}.mp4`,
-          },
-          { quoted: mek },
-        );
+            contextInfo: {
+                thumbnail: await getBuffer("https://i.ibb.co/XZfWb7ST/Untitled-1.png"), // Thumbnail image
+            },
+        },
+        { quoted: mek }
+    );
         await conn.sendMessage(from, { react: { text: "✅", key: mek.key } });
       }
     } catch (e) {
