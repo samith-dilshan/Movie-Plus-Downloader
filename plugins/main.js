@@ -27,8 +27,14 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
-let data = await fetchJson(`http://server.moviepluslk.xyz/api.php?slug=${q}`)
-if (!data) return reply("ඔබ ලබාදුන් ටොකන් එක වැරදි, නැතිනම් එය කල් ඉකුත් වී ඇත")
+let data = await fetchJson(
+        `http://server.moviepluslk.xyz/api.php?slug=${q}`,
+      );
+      if (!data || !Array.isArray(data) || data.length === 0) {
+        return reply("ඔබ ලබාදුන් ටොකන් එක වැරදි, නැතිනම් එය කල් ඉකුත් වී ඇත");
+      }
+
+      let fileInfo = data[0];
  
 let size = data.file_size;
 let downloadlink = data.google_drive_link;
