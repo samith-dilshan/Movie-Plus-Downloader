@@ -28,7 +28,7 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 
 let data = await fetchJson(`http://server.moviepluslk.xyz/api.php?slug=${q}`)
-if (!size) return reply("*ඔබ ලබාදුන් ටොකන් එක වැරදි, නැතිනම් එය කල් ඉකුත් වී ඇත*")
+if (!data) return reply("ඔබ ලබාදුන් ටොකන් එක වැරදි, නැතිනම් එය කල් ඉකුත් වී ඇත")
  
 let size = data.file_size;
 let downloadlink = data.google_drive_link;
